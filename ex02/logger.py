@@ -11,14 +11,14 @@ class log:
     def __call__(self, *args, **kwargs):
         start_time = time.time()
         call = self.func(machine, *args, **kwargs)
-        fd = open('machine.log', 'a+')
         f_name = ' '.join(word.capitalize() for word in self.func.__name__.split('_'))
         user_name = os.environ['USER']
         end = time.time()
         exec_time = end - start_time
         format_time = 'ms' if exec_time < 1. else 's'
         text = f'({user_name})Running: {f_name:20} [ exec-time = {exec_time:.3f} {format_time} ]\n'
-        fd.write(text)
+        with open('machine.log', 'a+') as fd:
+            fd.write(text)
         return call
 
 
