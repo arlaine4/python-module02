@@ -7,7 +7,7 @@ setuptools.setup(
     license='',
     description='My minipack',
     author_email='arlaine@student.42.fr',
-    packages=['progressbar', 'logger'],
+    packages=['my_minipack'],
     install_requires=['setuptools', 'wheel'],
     classifiers=[
         'Development Status :: 3 - Alpha',
